@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .header {
+            background-color: #2b2b42;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header img {
+            width: 50px;
+            height: auto;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .nav {
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #2b2b42;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .nav a:hover {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        .profile-icon {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .categories-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 50px auto;
+            max-width: 1000px;
+        }
+        .category-box {
+            background-color: #2b2b42;
+            color: white;
+            padding: 40px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            position: relative;
+        }
+        .category-box h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .category-box .create-entry-button {
+            background-color: #fbbf77;
+            color: black;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .category-box .create-entry-button:hover {
+            background-color: #e1a864;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <img src="logo.jpeg" alt="Institute Logo">
+        <h1>FR. C. RODRIGUES INSTITUTE OF TECHNOLOGY</h1>
+        <div class="profile-icon">
+            <img src="profileicon.jpeg" alt="Profile Icon" width="40">
+        </div>
+    </div>
+
+    <div class="nav">
+        <a href="homepage.html">HOME</a>
+        <a href="Calender.html">CALENDAR</a>
+        <a href="Entry.html">ENTRY</a>
+        <!-- <a href="event-placehold">EVENTS</a> -->
+    </div>
+
+    <!-- Categories Section -->
+    <div class="categories-container">
+        <div class="category-box">
+            <h3>TECHNICAL</h3>
+            <button class="create-entry-button">CREATE ENTRY</button>
+        </div>
+        <div class="category-box">
+            <h3>CULTURAL</h3>
+            <button class="create-entry-button">CREATE ENTRY</button>
+        </div>
+        <div class="category-box">
+            <h3>SPORTS</h3>
+            <button class="create-entry-button">CREATE ENTRY</button>
+        </div>
+        <div class="category-box">
+            <h3>HACKATHON</h3>
+            <button class="create-entry-button">CREATE ENTRY</button>
+        </div>
+        <div class="category-box">
+            <h3>INTERNSHIP</h3>
+            <button class="create-entry-button">CREATE ENTRY</button>
+        </div>
+    </div>
+
+</body>
+</html>

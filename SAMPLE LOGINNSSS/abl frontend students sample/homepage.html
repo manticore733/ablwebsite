@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .header {
+            background-color: #2b2b42;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header img {
+            width: 50px;
+            height: auto;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .nav {
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #2b2b42;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .nav a:hover {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        .profile-icon {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .news-flash {
+            background-color: #fbbf77;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 36px;
+            font-weight: bold;
+            color: black;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+        .button {
+            background-color: #2b2b42;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            margin: 0 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #1a1a30;
+        }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Upcoming Events Section */
+        .upcoming-events {
+            padding: 20px;
+            text-align: center;
+        }
+        .upcoming-events h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Filter Section */
+        .filter-container {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .filter-container select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Event Cards Section */
+        .events-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .event-card {
+            background-color: #fff;
+            margin: 20px;
+            padding: 15px;
+            width: 320px; /* Slightly increased width */
+            height: 450px; /* Increased height */
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Left aligned content */
+            transition: transform 0.2s ease-in-out;
+            position: relative; /* For the corner placement of tag */
+        }
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+        .event-card img {
+            width: 100%;
+            height: 180px; /* Bigger rectangular image */
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .event-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .event-card p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+        .event-date {
+            font-weight: bold;
+            color: #2b2b42;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        /* Free/Paid Tag */
+        .event-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .event-tag.paid {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <img src="logo.jpeg" alt="Institute Logo">
+        <h1>FR. C. RODRIGUES INSTITUTE OF TECHNOLOGY</h1>
+        <div class="profile-icon">
+            <a href="Profile.html">
+            <img src="profileicon.jpeg" alt="Profile Icon" width="40">
+        </a>
+        </div>
+    </div>
+
+    <!-- Navigation Section -->
+    <div class="nav">
+        <a href="homepage.html">HOME</a>
+        <a href="Calender.html">CALENDAR</a>
+        <a href="Entry.html">ENTRY</a>
+        <!-- <a href="event-placehold">EVENTS</a> -->
+    </div>
+
+    <!-- News Flash Section -->
+    <div class="news-flash">
+        News Flash!!
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="buttons-container">
+        <a href="#" class="button">CREATE ENTRY</a>
+        <a href="#" class="button">CALENDAR</a>
+    </div>
+
+    <!-- Notification Bell -->
+    <div class="notification">
+        <img src="bell-icon.jpeevent-placeholder.jpeg" alt="Notification Bell" width="40">
+    </div>
+
+    <!-- Upcoming Events Section -->
+    <div class="upcoming-events">
+        <h2>Upcoming Events</h2>
+
+        <!-- Filter Dropdown -->
+        <div class="filter-container">
+            <select name="event-filter" id="event-filter">
+                <option value="all">All Events</option>
+                <option value="tech">Tech</option>
+                <option value="sports">Sports</option>
+                <option value="cultural">Cultural</option>
+            </select>
+        </div>
+
+        <!-- Events Section (Event Cards) -->
+        <div class="events-section">
+            <div class="event-card">
+                <img src="event-placeholder.jpeg" alt="Event Image">
+                <h3>Technology Seminar</h3>
+                <p>TechHub</p>
+                <div class="event-date">09-11 JAN</div>
+                <div class="event-tag">Free</div>
+            </div>
+
+            <div class="event-card">
+                <img src="event-placeholder.jpeg" alt="Event Image">
+                <h3>Sports Championship</h3>
+                <p>Sports Arena</p>
+                <p>Time : 8:30 pm - 10:30 pm</p>
+                <div class="event-date">FRI, 06 SEP</div>
+                <div class="event-tag paid">Paid</div>
+            </div>
+
+            <div class="event-card">
+                <img src="event-placeholder.jpeg" alt="Event Image">
+                <h3>Cultural Festival</h3>
+                <p>Convention Center</p>
+                <div class="event-date">22-23 NOV</div>
+                <div class="event-tag">Free</div>
+            </div>
+
+            <div class="event-card">
+                <img src="event-placeholder.jpeg" alt="Event Image">
+                <h3>Startup Conference</h3>
+                <p>Business Hall</p>
+                <div class="event-date">SAT, 07 SEP</div>
+                <div class="event-tag paid">Paid</div>
+            </div>
+
+            <div class="event-card">
+                <img src="event-placeholder.jpeg" alt="Event Image">
+                <h3>Music Concert</h3>
+                <p>Open Air Grounds</p>
+                <div class="event-date">05-07 OCT</div>
+                <div class="event-tag">Free</div>
+            </div>
+
+            <div class="event-card">
+                <img src="event-placeholder.jpeg" alt="Event Image">
+                <h3>Hackathon 2024</h3>
+                <p>Innovation Hub</p>
+                <div class="event-date">22-23 NOV</div>
+                <div class="event-tag paid">Paid</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
