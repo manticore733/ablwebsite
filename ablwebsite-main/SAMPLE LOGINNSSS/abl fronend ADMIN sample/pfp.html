@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Analytics Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .header {
+            background-color: #2b2b42;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1;
+        }
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(to bottom, #2b2b42, #3c3c5c);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            padding-top: 20px;
+            z-index: 2;
+        }
+        .sidebar a {
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background-color: #4CAF50;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 30px;
+            padding-top: 70px;
+        }
+        .page-section {
+            margin-bottom: 30px;
+        }
+        .search-box {
+            margin-bottom: 20px;
+        }
+        .analytics-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .analytics-card h3 {
+            color: #2b2b42;
+        }
+        .chart-container {
+            margin: 20px 0;
+        }
+        .profile-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .profile-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .container-card {
+            margin-bottom: 40px;
+        }
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+            .content {
+                margin-left: 0;
+                padding-top: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Admin Analytics Dashboard</h1>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <a href="profile.html">Profile Overview</a>
+        <a href="mentor_management.html">Mentor Management</a>
+        <a href="event_management.html">Event Management</a>
+        <a href="#student-analytics">Student Analytics</a>
+        <a href="#mentor-analytics">Mentor Analytics</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        
+        <!-- Student Analytics Section -->
+        <div class="container-card" id="student-analytics">
+            <h2>Student Analytics</h2>
+            
+            <!-- Search and Filters -->
+            <div class="search-box">
+                <input type="text" id="student-name" class="form-control" placeholder="Search by student name">
+                <div class="d-flex justify-content-between mt-3">
+                    <select class="form-select" id="student-year">
+                        <option selected>Year</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                    </select>
+                    <select class="form-select" id="student-semester">
+                        <option selected>Semester</option>
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                    </select>
+                    <select class="form-select" id="student-department">
+                        <option selected>Department</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Student Details Card -->
+            <div class="profile-card">
+                <div class="d-flex justify-content-between">
+                    <img src="https://via.placeholder.com/80" alt="Student Photo">
+                    <div>
+                        <h5>Student Name: John Doe</h5>
+                        <p>Department: Computer Science</p>
+                        <p>Year: 2nd Year | Semester: 3</p>
+                        <p>Total Credits: 50</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Analytics Charts -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="analytics-card">
+                        <h3>Event Participation</h3>
+                        <div class="chart-container">
+                            <canvas id="studentEventParticipation"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="analytics-card">
+                        <h3>Credit Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="studentCreditDistribution"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mentor Analytics Section -->
+        <div class="container-card" id="mentor-analytics">
+            <h2>Mentor Analytics</h2>
+            
+            <!-- Search and Filters -->
+            <div class="search-box">
+                <input type="text" id="mentor-name" class="form-control" placeholder="Search by mentor name">
+                <div class="d-flex justify-content-between mt-3">
+                    <select class="form-select" id="mentor-year">
+                        <option selected>Year</option>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                    </select>
+                    <select class="form-select" id="mentor-semester">
+                        <option selected>Semester</option>
+                        <option value="1">Semester 1</option>
+                        <option value="2">Semester 2</option>
+                    </select>
+                    <select class="form-select" id="mentor-department">
+                        <option selected>Department</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Mentor Details Card -->
+            <div class="profile-card">
+                <div class="d-flex justify-content-between">
+                    <img src="https://via.placeholder.com/80" alt="Mentor Photo">
+                    <div>
+                        <h5>Mentor Name: Dr. Jane Smith</h5>
+                        <p>Department: Electrical Engineering</p>
+                        <p>Total Students: 50</p>
+                        <p>Active Events: 3</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mentor Analytics Charts -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="analytics-card">
+                        <h3>Student Participation in Events</h3>
+                        <div class="chart-container">
+                            <canvas id="mentorEventParticipation"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="analytics-card">
+                        <h3>Completion of Credit Goals</h3>
+                        <div class="chart-container">
+                            <canvas id="mentorCreditGoalsCompletion"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Example Chart: Student Event Participation
+        const studentEventParticipation = document.getElementById('studentEventParticipation').getContext('2d');
+        new Chart(studentEventParticipation, {
+            type: 'bar',
+            data: {
+                labels: ['Tech', 'Cultural', 'Sports', 'Internships'],
+                datasets: [{
+                    label: 'Events Attended',
+                    data: [5, 8, 3, 2],
+                    backgroundColor: 'rgba(99, 132, 255, 0.5)',
+                    borderColor: 'rgba(99, 132, 255, 1)',
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        // Example Chart: Credit Distribution
+        const studentCreditDistribution = document.getElementById('studentCreditDistribution').getContext('2d');
+        new Chart(studentCreditDistribution, {
+            type: 'pie',
+            data: {
+                labels: ['Credits Earned', 'Credits Remaining'],
+                datasets: [{
+                    label: 'Credit Distribution',
+                    data: [45, 5],
+                    backgroundColor: ['#36A2EB', '#FF6384'],
+                    borderColor: ['#fff', '#fff'],
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        // Example Chart: Mentor Event Participation
+        const mentorEventParticipation = document.getElementById('mentorEventParticipation').getContext('2d');
+        new Chart(mentorEventParticipation, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Events Conducted',
+                    data: [1, 2, 3, 4, 5],
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    tension: 0.1
+                }]
+            }
+        });
+
+        // Example Chart: Mentor Credit Goals Completion
+        const mentorCreditGoalsCompletion = document.getElementById('mentorCreditGoalsCompletion').getContext('2d');
+        new Chart(mentorCreditGoalsCompletion, {
+            type: 'bar',
+            data: {
+                labels: ['Tech', 'Sports', 'Cultural'],
+                datasets: [{
+                    label: 'Completion Status',
+                    data: [80, 70, 90],
+                    backgroundColor: '#FFCD56',
+                    borderColor: '#FFCD56',
+                    borderWidth: 1
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

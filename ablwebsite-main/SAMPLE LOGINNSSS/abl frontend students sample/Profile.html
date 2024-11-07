@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background-color: #f3f3f3;
+    }
+    header {
+      background-color: #0f2544;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 24px;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #0f2544;
+      color: white;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .dashboard-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    .dashboard-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .profile {
+      text-align: center;
+    }
+    .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .profile-info {
+      text-align: left;
+    }
+    .profile-info p {
+      margin: 5px 0;
+    }
+    .edit-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 5px;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+    .current-courses {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .credits-distribution {
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 20px;
+    }
+    .progress-bar {
+      height: 20px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      background-color: #ddd;
+    }
+    .progress {
+      height: 100%;
+      text-align: center;
+      color: white;
+      padding: 0 10px;
+    }
+    .progress-technical {
+      background-color: #007BFF;
+      width: 50%;
+    }
+    .progress-internships {
+      background-color: #28A745;
+      width: 40%;
+    }
+    .progress-sports {
+      background-color: #FFC107;
+      width: 60%;
+    }
+    .total-credits {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    FR. C. RODRIGUES INSTITUTE OF TECHNOLOGY
+  </header>
+
+  <div class="navbar">
+    <a href="homepage.html">Home</a>
+    <a href="Calender.html">Calendar</a>
+    <a href="Entry.html">Entry</a>
+    <i class="fas fa-user-circle"></i>
+  </div>
+
+  <div class="dashboard-container">
+    <div class="dashboard-content">
+
+      <!-- Profile Section -->
+      <div class="card profile">
+        <img src="https://via.placeholder.com/150" alt="Profile Picture">
+        <h2>John Doe</h2>
+        <div class="profile-info">
+          <p><strong>College Mail:</strong> john.doe@university.edu</p>
+          <p><strong>Phone:</strong> +1234567890</p>
+          <p><strong>Address:</strong> 123 Main St, City</p>
+          <p><strong>Branch:</strong> Computer Science</p>
+          <p><strong>Semester:</strong> 5</p>
+        </div>
+        <a href="#" class="edit-btn">Edit Profile</a>
+      </div>
+
+      <!-- CGPA Over Semesters Chart -->
+      <div class="card">
+        <h3>CGPA Over Semesters</h3>
+        <canvas id="cgpaChart"></canvas>
+      </div>
+
+      <!-- Current Courses -->
+      <div class="card">
+        <h3>Current Courses</h3>
+        <ul class="current-courses">
+          <li><strong>Course:</strong> AI & ML</li>
+          <li><strong>Status:</strong> Enrolled</li>
+          <li><strong>Credits:</strong> 4</li>
+        </ul>
+        <ul class="current-courses">
+          <li><strong>Course:</strong> Web Development</li>
+          <li><strong>Status:</strong> Enrolled</li>
+          <li><strong>Credits:</strong> 3</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Credits Distribution -->
+    <div class="card credits-distribution">
+      <h3>Credits Distribution</h3>
+      <div class="progress-bar">
+        <div class="progress progress-technical">Technical: 50%</div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress progress-internships">Internships: 40%</div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress progress-sports">Sports: 60%</div>
+      </div>
+      <div class="total-credits">
+        Total Credits: 123/200
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // CGPA Over Semesters Chart
+    const ctx = document.getElementById('cgpaChart').getContext('2d');
+    const cgpaChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Semester 1', 'Semester 2', 'Semester 3', 'Semester 4', 'Semester 5', 'Semester 6'],
+        datasets: [{
+          label: 'CGPA',
+          data: [7.5, 8.0, 8.2, 8.5, 9.0, 9.1],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+          fill: false,
+          tension: 0.1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 10
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

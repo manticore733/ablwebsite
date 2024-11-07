@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .header {
+            background-color: #2b2b42;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header img {
+            width: 50px;
+            height: auto;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .nav {
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #2b2b42;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .nav a:hover {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        .profile-icon {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .news-flash {
+            background-color: #fbbf77;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 36px;
+            font-weight: bold;
+            color: black;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+        .button {
+            background-color: #2b2b42;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            margin: 0 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #1a1a30;
+        }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <img src="logo.jpeg" alt="Institute Logo">
+        <h1>FR. C. RODRIGUES INSTITUTE OF TECHNOLOGY</h1>
+        <div class="profile-icon">
+            <img src="profileicon.jpeg" alt="Profile Icon" width="40">
+        </div>
+    </div>
+
+    <!-- Navigation Section -->
+    <div class="nav">
+        <a href="#">HOME</a>
+        <!-- <a href="#">CALENDAR</a>
+        <a href="#">ENTRY</a> -->   
+        <a href="internalevent.html">EVENTS</a>
+    </div>
+
+    <!-- News Flash Section -->
+    <div class="news-flash">
+        News Flash!!
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="buttons-container">
+        <a href="internalevent.html" class="button">CREATE ENTRY</a>
+    </div>
+
+    <!-- Notification Bell -->
+    <div class="notification">
+        <img src="bell-icon.png" alt="Notification Bell" width="40">
+    </div>
+
+</body>
+</html>
