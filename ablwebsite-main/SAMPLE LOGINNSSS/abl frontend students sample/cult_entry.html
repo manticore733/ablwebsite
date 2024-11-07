@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Courses, Workshops, and Seminar</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f6f8;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header h2 {
+            font-size: 24px;
+            margin: 0;
+            margin-left: 10px;
+        }
+        .header img {
+            width: 60px;
+            height: auto;
+        }
+        .welcome-text {
+            text-align: right;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .action-buttons, .status-labels {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .status-labels p {
+            margin: 0;
+            font-weight: bold;
+        }
+        .btn-small {
+            font-size: 12px;
+            padding: 5px 8px;
+        }
+        .table thead {
+            background-color: #343a40;
+            color: white;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        .search-data-section {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="d-flex align-items-center">
+            <img src="logo.jpeg" alt="Institute Logo">
+            <h2>   Create Entry For Cultural EVENTS</h2>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Actions and Search Section -->
+        <div class="action-buttons mb-3">
+            <button class="btn btn-primary btn-small" data-toggle="modal" data-target="#addDataModal">ADD DATA</button>
+            <button class="btn btn-success btn-small">Export to Excel</button>
+            <input type="text" placeholder="Search" class="form-control" style="max-width: 200px;">
+            <button class="btn btn-secondary btn-small">Submit</button>
+        </div>
+
+        <!-- Status Labels -->
+        <div class="status-labels">
+            <p>Total: 2</p>
+            <p>Approved records: 1</p>
+            <p>Pending records: 0</p>
+            <p>Sent Back records: 1</p>
+        </div>
+
+        <!-- Table Section -->
+        <div class="table-container table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr</th>
+                        <th>ID</th>
+                        <th>Name of Student</th>
+                        <th>Roll Number</th>
+                        <th>Branch</th>
+                        <th>Division</th>
+                        <th>Year of Study</th>
+                        <th>Type of Event</th>
+                        <th>Title of Event</th>
+                        <th>Organizing Institute/Body</th>
+                        <th>Professional Body Associated</th>
+                        <th>Duration</th>
+                        <th>Credits</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Action</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>805</td>
+                        <td>Pranav Batki</td>
+                        <td>1021113</td>
+                        <td>Computers</td>
+                        <td>A</td>
+                        <td>TE</td>
+                        <td>Workshop</td>
+                        <td>Brief Introduction to AI-ML</td>
+                        <td>AIDL Club FCRIT</td>
+                        <td>Fr Agnel Vashi</td>
+                        <td>1 day</td>
+                        <td>3 </td>
+                        <td>2023-07-29</td>
+                        <td>2023-07-29</td>
+                        <td class="actions">
+                            <button class="btn btn-sm btn-info">Download</button>
+                            <button class="btn btn-sm btn-primary">Edit</button>
+                        </td>
+                        <td>Sent Back</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>804</td>
+                        <td>Pranav Batki</td>
+                        <td>1021113</td>
+                        <td>Computers</td>
+                        <td>A</td>
+                        <td>TE</td>
+                        <td>Workshop</td>
+                        <td>Supervised Learning Workshop</td>
+                        <td>AIDL Club FCRIT</td>
+                        <td>Fr Agnel Vashi</td>
+                        <td>5 days</td>
+                        <td>3 </td>
+                        <td>2023-09-05</td>
+                        <td>2023-09-11</td>
+                        <td class="actions">
+                            <button class="btn btn-sm btn-info">Download</button>
+                            <button class="btn btn-sm btn-primary">Edit</button>
+                        </td>
+                        <td>Approved</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Search Data Section -->
+        <div class="search-data-section table-responsive">
+            <h5>Search Data</h5>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr</th>
+                        <th>ID</th>
+                        <th>Name of Student</th>
+                        <th>Roll Number</th>
+                        <th>Branch</th>
+                        <th>Division</th>
+                        <th>Year of Study</th>
+                        <th>Type of Course</th>
+                        <th>Title of Program</th>
+                        <th>Organizing Institute</th>
+                        <th>Professional Body</th>
+                        <th>Duration</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Action</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data rows can be added dynamically here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for Add Data -->
+    <div class="modal fade" id="addDataModal" tabindex="-1" role="dialog" aria-labelledby="addDataModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addDataModalLabel">Add Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addDataForm">
+                        <div class="form-group">
+                            <label for="studentName">Name of Student</label>
+                            <input type="text" class="form-control" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rollNumber">Roll Number</label>
+                            <input type="text" class="form-control" id="rollNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="branch">Branch</label>
+                            <input type="text" class="form-control" id="branch" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="division">Division</label>
+                            <input type="text" class="form-control" id="division" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="yearOfStudy">Year of Study</label>
+                            <input type="text" class="form-control" id="yearOfStudy" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventType">Type of Event</label>
+                            <input type="text" class="form-control" id="eventType" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventTitle">Title of Event</label>
+                            <input type="text" class="form-control" id="eventTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="organizingBody">Organizing Institute/Body</label>
+                            <input type="text" class="form-control" id="organizingBody" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="professionalBody">Professional Body Associated</label>
+                            <input type="text" class="form-control" id="professionalBody" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">Duration</label>
+                            <input type="text" class="form-control" id="duration" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="credits">Credits</label>
+                            <input type="number" class="form-control" id="credits" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">End Date</label>
+                            <input type="date" class="form-control" id="endDate" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    <div id="summary" style="display:none;">
+                        <h5>Summary</h5>
+                        <p id="summaryContent"></p>
+                        <button id="editButton" class="btn btn-secondary">Edit</button>
+                        <button id="finalSubmitButton" class="btn btn-success">Finalize Submission</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#addDataForm').on('submit', function(event) {
+                event.preventDefault();
+                
+                // Gather data from the form
+                var data = {
+                    name: $('#studentName').val(),
+                    rollNumber: $('#rollNumber').val(),
+                    branch: $('#branch').val(),
+                    division: $('#division').val(),
+                    yearOfStudy: $('#yearOfStudy').val(),
+                    eventType: $('#eventType').val(),
+                    eventTitle: $('#eventTitle').val(),
+                    organizingBody: $('#organizingBody').val(),
+                    professionalBody: $('#professionalBody').val(),
+                    duration: $('#duration').val(),
+                    credits: $('#credits').val(),
+                    startDate: $('#startDate').val(),
+                    endDate: $('#endDate').val(),
+                };
+                
+                // Create summary content
+                var summaryContent = `
+                    <strong>Name of Student:</strong> ${data.name}<br>
+                    <strong>Roll Number:</strong> ${data.rollNumber}<br>
+                    <strong>Branch:</strong> ${data.branch}<br>
+                    <strong>Division:</strong> ${data.division}<br>
+                    <strong>Year of Study:</strong> ${data.yearOfStudy}<br>
+                    <strong>Type of Event:</strong> ${data.eventType}<br>
+                    <strong>Title of Event:</strong> ${data.eventTitle}<br>
+                    <strong>Organizing Institute/Body:</strong> ${data.organizingBody}<br>
+                    <strong>Professional Body Associated:</strong> ${data.professionalBody}<br>
+                    <strong>Duration:</strong> ${data.duration}<br>
+                    <strong>Credits:</strong> ${data.credits}<br>
+                    <strong>Start Date:</strong> ${data.startDate}<br>
+                    <strong>End Date:</strong> ${data.endDate}
+                `;
+                
+                // Show summary and hide form
+                $('#summaryContent').html(summaryContent);
+                $('#summary').show();
+                $('#addDataForm').hide();
+            });
+
+            // Edit button functionality
+            $('#editButton').on('click', function() {
+                $('#summary').hide();
+                $('#addDataForm').show();
+            });
+
+            // Final submit button functionality
+            $('#finalSubmitButton').on('click', function() {
+                // Here you can add logic to handle final submission (e.g., send data to a server)
+                alert('Data submitted successfully!');
+                $('#addDataModal').modal('hide');
+                $('#addDataForm')[0].reset(); // Reset the form
+                $('#summary').hide(); // Hide the summary
+                $('#addDataForm').show(); // Show the form again
+            });
+        });
+    </script>
+</body>
+</html>

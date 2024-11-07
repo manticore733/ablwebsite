@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb, #90caf9, #42a5f5);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            color: #333;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .header {
+            background-color: #1565c0;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 4px solid #0d47a1;
+        }
+        .header img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            background-color: #1976d2;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .btn-primary {
+            background-color: #42a5f5;
+            border-color: #42a5f5;
+        }
+        .btn-primary:hover {
+            background-color: #1e88e5;
+            border-color: #1e88e5;
+        }
+        .preview-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- College Header with Logo -->
+    <div class="header">
+        <img src="logo.jpeg" alt="College Logo">
+        <h1>FR. C. Rodrigues Institute of Technology</h1>
+    </div>
+
+    <div class="container">
+        <!-- Page Title -->
+        <h2 class="text-center font-weight-bold">Add New Event</h2>
+
+        <!-- Add Event Form -->
+        <div class="card my-5 margin-top: ">
+            <div class="card-header">Event Details</div>
+            <div class="card-body">
+                <form id="eventForm" novalidate>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="eventName">Event Name</label>
+                            <input type="text" class="form-control" id="eventName" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="endDate">End Date</label>
+                            <input type="date" class="form-control" id="endDate" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="eventTime">Event Time</label>
+                            <input type="time" class="form-control" id="eventTime" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="eventVenue">Event Venue</label>
+                            <input type="text" class="form-control" id="eventVenue" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="eventType">Event Type</label>
+                            <select class="form-control" id="eventType" required>
+                                <option value="">Select Type</option>
+                                <option value="Cultural">Cultural</option>
+                                <option value="Technical">Technical</option>
+                                <option value="Sports">Sports</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="pointsAllocated">Points Allocated</label>
+                            <input type="number" class="form-control" id="pointsAllocated" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="eventDescription">Event Description</label>
+                            <textarea class="form-control" id="eventDescription" rows="4" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="organizerName">Organizer Name</label>
+                            <input type="text" class="form-control" id="organizerName">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="contactInfo">Contact Information</label>
+                            <input type="text" class="form-control" id="contactInfo">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="registrationLink">Link to Registration</label>
+                            <input type="text" class="form-control" id="registrationLink">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="entryFee">Entry Fee</label>
+                            <input type="number" class="form-control" id="entryFee">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="previewDetails()">Preview Event</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Preview Section -->
+        <div class="preview-section" id="previewSection">
+            <h3 class="text-center font-weight-bold">Preview Event Details</h3>
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>Event Name:</strong> <span id="previewEventName"></span></li>
+                <li class="list-group-item"><strong>Start Date:</strong> <span id="previewStartDate"></span></li>
+                <li class="list-group-item"><strong>End Date:</strong> <span id="previewEndDate"></span></li>
+                <li class="list-group-item"><strong>Event Time:</strong> <span id="previewEventTime"></span></li>
+                <li class="list-group-item"><strong>Venue:</strong> <span id="previewEventVenue"></span></li>
+                <li class="list-group-item"><strong>Type:</strong> <span id="previewEventType"></span></li>
+                <li class="list-group-item"><strong>Points Allocated:</strong> <span id="previewPointsAllocated"></span></li>
+                <li class="list-group-item"><strong>Description:</strong> <span id="previewEventDescription"></span></li>
+                <li class="list-group-item"><strong>Organizer:</strong> <span id="previewOrganizerName"></span></li>
+                <li class="list-group-item"><strong>Contact:</strong> <span id="previewContactInfo"></span></li>
+                <li class="list-group-item"><strong>Registration Link:</strong> <span id="previewRegistrationLink"></span></li>
+                <li class="list-group-item"><strong>Entry Fee:</strong> <span id="previewEntryFee"></span></li>
+            </ul>
+            <button class="btn btn-warning" onclick="editEvent()">Edit</button>
+            <button class="btn btn-success" onclick="submitEvent()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        function previewDetails() {
+            const form = document.getElementById('eventForm');
+            if (form.checkValidity()) {
+                document.getElementById('previewEventName').textContent = document.getElementById('eventName').value;
+                document.getElementById('previewStartDate').textContent = document.getElementById('startDate').value;
+                document.getElementById('previewEndDate').textContent = document.getElementById('endDate').value;
+                document.getElementById('previewEventTime').textContent = document.getElementById('eventTime').value;
+                document.getElementById('previewEventVenue').textContent = document.getElementById('eventVenue').value;
+                document.getElementById('previewEventType').textContent = document.getElementById('eventType').value;
+                document.getElementById('previewPointsAllocated').textContent = document.getElementById('pointsAllocated').value;
+                document.getElementById('previewEventDescription').textContent = document.getElementById('eventDescription').value;
+                document.getElementById('previewOrganizerName').textContent = document.getElementById('organizerName').value;
+                document.getElementById('previewContactInfo').textContent = document.getElementById('contactInfo').value;
+                document.getElementById('previewRegistrationLink').textContent = document.getElementById('registrationLink').value;
+                document.getElementById('previewEntryFee').textContent = document.getElementById('entryFee').value;
+                document.getElementById('previewSection').style.display = "block";
+                form.style.display = "none";
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function editEvent() {
+            document.getElementById('previewSection').style.display = "none";
+            document.getElementById('eventForm').style.display = "block";
+        }
+
+        function submitEvent() {
+            alert("Event submitted successfully!");
+            document.getElementById('eventForm').reset();
+            editEvent();
+        }
+    </script>
+
+</body>
+</html>
