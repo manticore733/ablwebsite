@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2b2b42;
+        }
+        .header {
+            background-color: #2b2b42;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .nav {
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 10px 0;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #2b2b42;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .nav a:hover {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        .form-container {
+            background-color: #fbbf77;
+            margin: 50px auto;
+            padding: 40px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group input[type="date"] {
+            cursor: pointer;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .buttons .cancel {
+            background-color: #f2f2f2;
+            color: #2b2b42;
+        }
+        .buttons .next {
+            background-color: #2b2b42;
+            color: white;
+        }
+        .buttons button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>FR. C. RODRIGUES INSTITUTE OF TECHNOLOGY</h1>
+    </div>
+
+    <!-- Navigation Section -->
+    <div class="nav">
+        <a href="clubadmindash.html">Home</a>
+        <a href="internalevent.html">Add Club Events</a>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-container">
+        <h2>Add Club Events</h2>
+        <form>
+            <!-- Event Name -->
+            <div class="form-group">
+                <label for="event-name">Event Name</label>
+                <input type="text" id="event-name" name="event-name" placeholder="Enter Event Name">
+            </div>
+
+            <!-- Event Type -->
+            <div class="form-group">
+                <label for="event-type">Event Type</label>
+                <select id="event-type" name="event-type">
+                    
+                    <option value="cultural">Cultural</option>
+                    <option value="technical">Technical</option>
+                    <option value="sports">Sports</option>
+                </select>
+            </div>
+
+            <!-- Event Registration Link -->
+            <div class="form-group">
+                <label for="event-link">Link to the Event Registration</label>
+                <input type="url" id="event-link" name="event-link" placeholder="Enter Event Registration Link">
+            </div>
+
+            <!-- Event Points Allocated -->
+            <div class="form-group">
+                <label for="event-points">Enter Points Allocated</label>
+                <input type="number" id="event-points" name="event-points" placeholder="Enter Points Allocated">
+            </div>
+
+            <!-- Pick Date -->
+            <div class="form-group">
+                <label for="pick-date">Pick Date</label>
+                <input type="date" id="pick-date" name="pick-date">
+            </div>
+
+            <!-- End Date -->
+            <div class="form-group">
+                <label for="end-date">End Date</label>
+                <input type="date" id="end-date" name="end-date">
+            </div>
+
+            <!-- Buttons -->
+            <div class="buttons">
+                <button type="button" class="cancel">Cancel</button>
+                <button type="submit" class="next">Next</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
