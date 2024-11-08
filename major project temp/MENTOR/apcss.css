@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F7D7B4;
+}
+
+header {
+    background-color: #293142;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header .logo img {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.filter-container {
+    margin: 20px auto;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #293142;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.filter-container .add-filter {
+    background-color: #FFBF5E;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+}
+
+.filter-container input {
+    padding: 10px;
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+    background-color: #293142;
+    color: white;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #FFBF5E;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #F2E0CE;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+.icon.download {
+    background-image: url('download-icon.png'); /* Replace with your download icon */
+}
+
+.icon.approve {
+    background-image: url('approve-icon.png'); /* Replace with your approve icon */
+}
+
+.icon.delete {
+    background-image: url('delete-icon.png'); /* Replace with your delete icon */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.pagination button {
+    background-color: #FFBF5E;
+    border: none;
+    margin: 0 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #F2A85C;
+}
+
+.requirements-header {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #F2E0CE;
+    border: 1px solid #293142;
+    margin-left: calc(100% - fit-content(width));
+}

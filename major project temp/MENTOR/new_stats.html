@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-top: 20px;
+        }
+        .table th,
+        .table td {
+            vertical-align: middle;
+        }
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+            border-radius: 0.25rem;
+        }
+        .progress-bar {
+            background-color: #0d6efd;
+        }
+        .search-bar input, .search-bar select {
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            margin-right: 10px;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .chart-wrapper {
+            width: 45%;
+            height: auto;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+            padding: 1rem; /* Padding added for spacing */
+        }
+        .chart-wrapper:hover {
+            transform: scale(1.05);
+        }
+        /* New Search Bar Styling */
+        .search-bar {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .search-bar input, .search-bar select {
+            width: 48%;
+        }
+        /* Additional Section Styling */
+        .student-progress-section {
+            margin-top: 2rem;
+        }
+        .student-progress-section h4 {
+            margin-bottom: 1rem;
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <!-- Mentor Dashboard Title -->
+        <h2 class="text-3xl font-semibold mb-6">Mentor Dashboard</h2>
+
+        <!-- Pending Entries Section with Search -->
+        <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h3 class="section-title">Pending Entries</h3>
+            <div class="search-bar mt-4">
+                <input type="text" placeholder="Search by student name..." class="p-2 border border-gray-300 rounded-lg">
+                <select class="p-2 border border-gray-300 rounded-lg">
+                    <option value="">Filter by Entry Type</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Cultural">Cultural</option>
+                    <option value="Sport">Sport</option>
+                </select>
+            </div>
+            <table class="table table-bordered mt-4">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th>ID</th>
+                        <th>Student Name</th>
+                        <th>Roll No</th>
+                        <th>Event Title</th>
+                        <th>Credits</th>
+                        <th>Event Type</th>
+                        <th>Details</th>
+                        <th>Actions</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>805</td>
+                        <td>Pranav Batki</td>
+                        <td>18BCS101</td>
+                        <td>Intro to AI-ML</td>
+                        <td>3</td>
+                        <td>Technical</td>
+                        <td>Workshop on basics of AI and ML.</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm">Edit</button>
+                            <button class="btn btn-success btn-sm">Approve</button>
+                            <button class="btn btn-warning btn-sm">Send Back</button>
+                        </td>
+                        <td>Pending</td>
+                    </tr>
+                    <!-- Additional entries go here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Completed Entries Section -->
+        <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h3 class="section-title">Completed Entries</h3>
+            <table class="table table-bordered mt-4">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th>ID</th>
+                        <th>Student Name</th>
+                        <th>Event Title</th>
+                        <th>Credits</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>802</td>
+                        <td>Ayesha Khanna</td>
+                        <td>Data Science Workshop</td>
+                        <td>4</td>
+                        <td>Completed</td>
+                    </tr>
+                    <!-- Additional completed entries go here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Students Yet to Meet Credit Criteria Section -->
+        <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h3 class="section-title">Students Yet to Meet Credit Criteria</h3>
+            <table class="table table-bordered mt-4">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Total Credits</th>
+                        <th>Credits Needed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rahul Sharma</td>
+                        <td>8</td>
+                        <td>2</td>
+                    </tr>
+                    <!-- Additional students who need credits go here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Search and View Student Progress Section -->
+        <div class="bg-white shadow-md rounded-lg p-6 mb-8 student-progress-section">
+            <h3 class="section-title">Search Student by Name/Roll No</h3>
+            <div class="search-bar mt-4">
+                <input type="text" placeholder="Search by name or roll no..." class="w-full p-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <!-- Enhanced Student Progress Section -->
+            <div class="mt-6">
+                <h4 class="text-xl font-semibold mb-2">Student Progress</h4>
+                <p><strong>Name:</strong> Rahul Sharma</p>
+                <p><strong>Roll No:</strong> 18BCS101</p>
+                <p><strong>Total Credits:</strong> 18</p>
+
+                <!-- Chart Containers for Distribution and Requirements -->
+                <div class="chart-container my-4">
+                    <!-- Pie Chart for Current Credit Distribution -->
+                    <div class="chart-wrapper card shadow-lg">
+                        <h5 class="text-lg font-semibold text-center mb-2">Current Credit Distribution</h5>
+                        <canvas id="creditsPieChart"></canvas>
+                    </div>
+
+                    <!-- Bar Chart for Remaining Credits Required -->
+                    <div class="chart-wrapper card shadow-lg">
+                        <h5 class="text-lg font-semibold text-center mb-2">Total Credits Pending</h5>
+                        <div class="text-center">
+                            <span class="font-bold text-xl">Total Remaining Credits: 8</span>
+                        </div>
+                        <canvas id="remainingCreditsBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Libraries for Bootstrap functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Chart.js Implementation -->
+    <script>
+        // Pie Chart for Current Credit Distribution
+        const ctx1 = document.getElementById('creditsPieChart').getContext('2d');
+        const creditsPieChart = new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: ['Technical', 'Cultural', 'Sports'],
+                datasets: [{
+                    data: [10, 5, 3],
+                    backgroundColor: ['#4B77BE', '#FFCE56', '#FF6384']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: { display: true, text: 'Current Credit Distribution' }
+                }
+            }
+        });
+
+        // Bar Chart for Remaining Credits Required
+        const ctx2 = document.getElementById('remainingCreditsBarChart').getContext('2d');
+        const remainingCreditsBarChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Technical', 'Cultural', 'Sports'],
+                datasets: [{
+                    data: [3, 2, 3],
+                    backgroundColor: '#FF6347',
+                    borderColor: '#FF6347',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'Remaining Credits Needed by Event Type' }
+                },
+                scales: {
+                    x: { 
+                        title: { display: true, text: 'Event Type' }
+                    },
+                    y: { 
+                        title: { display: true, text: 'Remaining Credits' },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
